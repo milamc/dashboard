@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<h:head>
+	<meta http-equiv="Content-Type" context="text/html; charset=ISO-8859-1" />
+	<title>Dashboard - Tasks</title>
+</h:head>
+
+<h:body>
+	<h1>Dashboard - Task</h1>
+	<hr />
+	<h:form>
+	
+		<t:messages/>
+	
+		<t:outputText>Lista de Task</t:outputText>
+
+		<t:dataTable var="item" id="tasks" value="#{taskBean.listaTasks}" rules="rows">
+			<t:saveState id="bean" value="#{taskBean}"/>
+			<t:column>
+				<f:facet name="header">
+					<h:outputText value="Título" />
+				</f:facet>
+				<t:outputText value="#{item.titulo}" />
+			</t:column>
+
+			<t:column>
+				<f:facet name="header">
+					<t:outputText value=""/>
+				</f:facet>
+				<t:commandLink  action="#{taskBean.alterar}"  ajax="false">
+					<t:graphicImage library="imagens" name="editar.png" width="20" height="20"/>
+					<f:setPropertyActionListener value="#{item}"
+						target="#{taskBean.task}" />
+				</t:commandLink>
+			</t:column>
+
+			<t:column>
+				<t:commandLink action="#{taskBean.excluir}" ajax="false"
+					onclick="if (!confirm('Confirma a exclusão?')) return false;">
+					<t:graphicImage library="imagens" name="excluir.png" width="20" height="20"/>
+					<f:setPropertyActionListener value="#{item}"
+						target="#{taskBean.task}" />
+				</t:commandLink>
+			</t:column>
+		</t:dataTable>
+	</h:form>
+</h:body>
+
+</html>
