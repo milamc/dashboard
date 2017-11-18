@@ -12,9 +12,18 @@ public class Task {
 	@GeneratedValue
 	private int id;
 	
-	@Column(name="title")
+	@Column
 	private String titulo;
+
+	@Column
+	private String descricao;
+
+	@Column
+	private int prioridade;
 	
+	@Column
+	private String usuario;
+
 	public int getId() {
 		return id;
 	}
@@ -29,5 +38,29 @@ public class Task {
 	
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
+	
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
+	public int getPrioridade() {
+		return prioridade;
+	}
+	
+	public void setPrioridade(int prioridade) {
+		this.prioridade = prioridade;
+	}
+	
+	public String getUsuario() {
+		return usuario;
+	}
+	
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 }

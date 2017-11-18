@@ -29,6 +29,27 @@
 
 			<t:column>
 				<f:facet name="header">
+					<h:outputText value="Descrição" />
+				</f:facet>
+				<t:outputText value="#{item.descricao}" />
+			</t:column>
+
+			<t:column>
+				<f:facet name="header">
+					<h:outputText value="Prioridade" />
+				</f:facet>
+				<t:outputText value="#{item.prioridade}" />
+			</t:column>
+
+			<t:column>
+				<f:facet name="header">
+					<h:outputText value="Usuário" />
+				</f:facet>
+				<t:outputText value="#{item.usuario}" />
+			</t:column>
+
+			<t:column>
+				<f:facet name="header">
 					<t:outputText value=""/>
 				</f:facet>
 				<t:commandLink  action="#{taskBean.alterar}"  ajax="false">

@@ -3,14 +3,19 @@ package br.com.profcamila.view;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.profcamila.dao.TaskDao;
+import org.apache.myfaces.custom.fileupload.UploadedFile;
+
 import br.com.profcamila.data.Task;
+import br.com.profcamila.service.TaskService;
 
 public class TaskBean {
 
 	private Task task;
 	private List<Task> listaTasks;
-	private TaskDao taskDao;
+	private TaskService taskService;
+	private List<UploadedFile> arquivos;
+	private UploadedFile arquivo;
+	private String arq;
 	
 	private String titulo;
 	
@@ -23,18 +28,15 @@ public class TaskBean {
 	
 	public String listar() {
 		
-		setListaTasks(getTaskDao().listarTasks());
+		setListaTasks(getTaskService().listar());
 		
 		return "lista";
 	}
 	
 	public String salvar() {
 
-		if(getTask().getId() == 0) {
-			getTaskDao().salvar(task);			
-		}else {
-			getTaskDao().alterar(task);
-		}
+		getTaskService().salvar(task, arquivos);
+		setListaTasks(getTaskService().listar());
 		
 		return "lista";
 	}
@@ -45,10 +47,18 @@ public class TaskBean {
 	}
 	
 	public String excluir() {
+		
 		System.out.println("Excluir");
-		getTaskDao().deletar(task.getId());
+		getTaskService().excluir(task);
 		
 		return null;
+	}
+	
+	public String upload() {
+		
+		getArquivos().add(arquivo);
+		
+		return "";
 	}
 	
 	public Task getTask() {
@@ -78,14 +88,41 @@ public class TaskBean {
 		this.titulo = titulo;
 	}
 	
-	public TaskDao getTaskDao() {
-		if(taskDao == null) {
-			taskDao = new TaskDao();
+	public TaskService getTaskService() {
+		if(taskService == null) {
+			taskService = new TaskService();
 		}
-		return taskDao;
+		return taskService;
 	}
 	
-	public void setTaskDao(TaskDao taskDao) {
-		this.taskDao = taskDao;
+	public void setTaskService(TaskService taskService) {
+		this.taskService = taskService;
+	}
+	
+	public List<UploadedFile> getArquivos() {
+		if(this.arquivos == null) {
+			this.arquivos = new ArrayList<UploadedFile>();
+		}
+		return arquivos;
+	}
+	
+	public void setArquivos(List<UploadedFile> arquivos) {
+		this.arquivos = arquivos;
+	}
+	
+	public UploadedFile getArquivo() {
+		return arquivo;
+	}
+	
+	public void setArquivo(UploadedFile arquivo) {
+		this.arquivo = arquivo;
+	}
+	
+	public String getArq() {
+		return arq;
+	}
+	
+	public void setArq(String arq) {
+		this.arq = arq;
 	}
 }

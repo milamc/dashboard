@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
 	
 <h:head>
 	<meta http-equiv="Content-Type" context="text/html; charset=ISO-8859-1"/>
@@ -13,11 +14,27 @@
 	<h1>Cadastro</h1>
 	<hr />
 	
-	<h:form>
+	<h:form enctype="multipart/form-data">
 		<h:messages />
 		<h:panelGrid>
-			<h:outputLabel value="Título:" for="title" />
+			<h:outputLabel value="Título:" for="titulo" />
 			<h:inputText id="title" value="#{taskBean.task.titulo}" required="true"/>
+			<h:outputLabel value="Descrição:" for="descricao" />
+			<h:inputText id="descricaso" value="#{taskBean.task.descricao}" required="true"/>
+			<h:outputLabel value="Prioridade:" for="prioridade" />
+			<h:inputText id="prioridade" value="#{taskBean.task.prioridade}" required="true"/>
+			<h:outputLabel value="Usuário:" for="usuario" />
+			<h:inputText id="usuario" value="#{taskBean.task.usuario}" required="true"/>
+			
+			<t:inputFileUpload storage="file" value="#{taskBean.arquivo}"/>
+			<h:commandButton action="#{taskBean.upload}" value="Carregar"/>
+			<hr />
+			<t:dataTable var="item" id="arquivos" value="#{taskBean.arquivos}" rules="rows" rendered="!empty(taskBean.arquivos)">
+				<t:column>
+					<t:outputText value="#{item.name}" />
+				</t:column>
+			</t:dataTable>
+			
 			<h:commandButton action="#{taskBean.salvar}" value="Salvar" />
 		</h:panelGrid>
 	</h:form>	
