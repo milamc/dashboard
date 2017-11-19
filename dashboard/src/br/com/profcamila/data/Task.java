@@ -23,6 +23,12 @@ public class Task {
 	
 	@Column
 	private String usuario;
+	
+	@Column
+	private int finalizado;
+	
+	@Column 
+	private String usuarioFinal;
 
 	public int getId() {
 		return id;
@@ -62,5 +68,21 @@ public class Task {
 	
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
+	}
+	
+	public int getFinalizado() {
+		return finalizado;
+	}
+	
+	public void setFinalizado(int finalizado) {
+		this.finalizado = finalizado;
+	}
+	
+	public String getUsuarioFinal() {
+		return usuarioFinal;
+	}
+	
+	public void setUsuarioFinal(String usuarioFinal) {
+		this.usuarioFinal = usuarioFinal;
 	}
 }

@@ -7,6 +7,11 @@
 
 	<display-name>dashboard</display-name>
 
+	<context-param>
+		<param-name>javax.faces.CONFIG_FILES</param-name>
+		<param-value>/WEB-INF/faces-config.xml</param-value>
+	</context-param>
+	
 	<servlet>
 		<display-name>FacesServlet</display-name>
 		<servlet-name>FacesServlet</servlet-name>
@@ -42,4 +47,6 @@
 		<filter-name>extensionsFilter</filter-name>
 		<url-pattern>*.jsf</url-pattern>
 	</filter-mapping>
+	
+	
 </web-app>

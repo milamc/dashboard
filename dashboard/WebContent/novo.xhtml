@@ -23,9 +23,7 @@
 			<h:inputText id="descricaso" value="#{taskBean.task.descricao}" required="true"/>
 			<h:outputLabel value="Prioridade:" for="prioridade" />
 			<h:inputText id="prioridade" value="#{taskBean.task.prioridade}" required="true"/>
-			<h:outputLabel value="Usuário:" for="usuario" />
-			<h:inputText id="usuario" value="#{taskBean.task.usuario}" required="true"/>
-			
+
 			<t:inputFileUpload storage="file" value="#{taskBean.arquivo}"/>
 			<h:commandButton action="#{taskBean.upload}" value="Carregar"/>
 			<hr />

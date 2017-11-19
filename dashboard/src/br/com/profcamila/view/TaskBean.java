@@ -6,10 +6,12 @@ import java.util.List;
 import org.apache.myfaces.custom.fileupload.UploadedFile;
 
 import br.com.profcamila.data.Task;
+import br.com.profcamila.data.UsuarioLogado;
 import br.com.profcamila.service.TaskService;
 
 public class TaskBean {
 
+	private static UsuarioLogado usuario;
 	private Task task;
 	private List<Task> listaTasks;
 	private TaskService taskService;
@@ -22,7 +24,6 @@ public class TaskBean {
 	public String novo() {
 		
 		this.task = new Task();
-		
 		return "novo";
 	}
 	
@@ -35,10 +36,19 @@ public class TaskBean {
 	
 	public String salvar() {
 
+		task.setUsuario(usuario.getEmail());
 		getTaskService().salvar(task, arquivos);
 		setListaTasks(getTaskService().listar());
 		
 		return "lista";
+	}
+	
+	public void iniciar(String nome, String email) {
+		
+		usuario = new UsuarioLogado();
+		usuario.setUsuario(nome);
+		usuario.setEmail(email);
+		
 	}
 	
 	public String alterar() {
@@ -61,6 +71,12 @@ public class TaskBean {
 		return "";
 	}
 	
+	public String concluir() {
+		
+		getTaskService().concluir(task, usuario.getEmail());
+		return "";
+	}
+
 	public Task getTask() {
 		return task;
 	}
@@ -124,5 +140,13 @@ public class TaskBean {
 	
 	public void setArq(String arq) {
 		this.arq = arq;
+	}
+	
+	public UsuarioLogado getUsuario() {
+		return usuario;
+	}
+	
+	public void setUsuario(UsuarioLogado usuario) {
+		TaskBean.usuario = usuario;
 	}
 }

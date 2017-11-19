@@ -72,6 +72,12 @@ public class TaskService {
 		
 	}
 	
+	public void concluir(Task task, String email) {
+		task.setFinalizado(1);
+		task.setUsuarioFinal(email);
+		getTaskDao().alterar(task);
+	}
+	
 	public TaskDao getTaskDao() {
 		if(this.taskDao == null) {
 			this.taskDao = new TaskDao();

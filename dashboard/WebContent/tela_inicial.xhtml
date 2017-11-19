@@ -3,21 +3,23 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 	
-<h:head>
+<head>
 	<meta http-equiv="Content-Type" context="text/html; charset=ISO-8859-1"/>
 	<title>Dashboard - Tasks</title>
-</h:head>
+</head>
 
-<h:body>
+<body>
 
 	<h1>Dashboard - Task</h1>
 	<hr />
 	<h:form>
+		<h:outputLabel> Bem Vindo ${usuario}</h:outputLabel>
+		<hr />
 		<h:commandLink action="#{taskBean.novo}" value="Nova Task" />
 		<h:outputLabel> | </h:outputLabel>
 		<h:commandLink action="#{taskBean.listar}" value="Listar Tasks" />
 	</h:form>
 
-</h:body>
+</body>
 
 </html>
