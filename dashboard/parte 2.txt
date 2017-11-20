@@ -1,0 +1,9 @@
+Quanto tempo demorou?
+  - Foram 6 horas para terminar esta tarefa.
+ 
+As assumptions para o desenvolvimento:
+  - Conhecer sobre a API do Google para autenticação.
+
+Principais dificuldades e desafios:
+  - Manter os dados do usuário na sessão;
+  - Realizar o SignOut do usuário da aplicação.

@@ -1,0 +1,5 @@
+1 - Acessar o link: http://default-environment.zahwdremvz.us-east-2.elasticbeanstalk.com/dashboard
+2 - logar com a conta do google.
+3 - Na tela inicial, podemos Criar uma Task no link "Nova Task", ou Listar as tarefas em "Listar Tasks"
+4 - Na tela Nova Task, temos de adicionar os dados referente à task, além de adicionar quantos arquivos desejar, cada um com um limite de 15 MB.
+5 - Na tela Listar Tasks, podemos alterar as informações das tasks, deletar as tasks ou finalizar as tasks.

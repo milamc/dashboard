@@ -1,0 +1,8 @@
+Quanto tempo demorou?
+  - Foram 1 hora para terminar esta tarefa.
+ 
+As assumptions para o desenvolvimento:
+  - Não há.
+
+Principais dificuldades e desafios:
+  - Não houve.

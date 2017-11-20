@@ -1,0 +1,8 @@
+Quanto tempo demorou?
+  - Foram 4 horas para terminar esta tarefa.
+ 
+As assumptions para o desenvolvimento:
+  - Conhecer os frameworks necessários para realizar upload de arquivos no servidor do Java.
+
+Principais dificuldades e desafios:
+  - Realizar o parse do arquivo no formato que ele foi recebido para o formato que deveria ser armazenado na base de dados.

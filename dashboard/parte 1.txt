@@ -1,0 +1,10 @@
+Quanto tempo demorou?
+  - Foram 12 horas para terminar esta tarefa.
+ 
+As assumptions para o desenvolvimento:
+  - Conhecer a linguagem java;
+  - Conhecer os frameworks para acesso à base de dados
+  - Conhecer os comando de SQL para execução da CRUD;
+
+Principais dificuldades e desafios:
+  - Adaptar os conhecimentos sobre JSF às versões atuais disponíveis
