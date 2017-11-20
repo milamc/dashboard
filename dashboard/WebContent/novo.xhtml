@@ -44,20 +44,17 @@
 			<h:inputText id="prioridade" value="#{taskBean.task.prioridade}"/>
 
 			<t:inputFileUpload storage="file" value="#{taskBean.arquivo}"/>
-			<br />
 			<h:commandButton action="#{taskBean.upload}" value="Carregar"/>
-			<br />
-			<hr />
-			<br />
 			<t:dataTable var="item" id="arquivos" value="#{taskBean.arquivos}" rules="rows">
 				<t:column>
 					<t:outputText value="#{item.name}" />
 				</t:column>
-			</t:dataTable>
-			<br />
+			</t:dataTable>			
+		</h:panelGrid>
+		<hr />
+		<h:panelGrid columns="2">
 			<h:commandButton action="#{taskBean.salvar}" value="Salvar" />
 			<h:commandButton action="#{taskBean.voltar}" value="Voltar" />
-			
 		</h:panelGrid>
 	</h:form>	
 					</div>
