@@ -5,21 +5,41 @@
 	
 <head>
 	<meta http-equiv="Content-Type" context="text/html; charset=ISO-8859-1"/>
+	
+	<link rel='stylesheet' href='resources\css\normalize.css' />
+	<link rel='stylesheet' href='resources\css\styles.css' />
+	<link rel='stylesheet' href='resources\css\bootstrap.css' />
+	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text"
+		rel="stylesheet" />
+	<script src='resources\js\bootstrap.js'></script>
+	<script src='resources\js\jquery-3.2.1.js'></script>
 	<title>Dashboard - Tasks</title>
 </head>
 
 <body>
 
-	<h1>Dashboard - Task</h1>
-	<hr />
+	<div class="jumbotron text-center">
+		<header>
+			<div id="cab_logo">
+				<img src='resources/imagens/logo.png' />
+				<h1>DashBoard - Tasks</h1>
+			</div>
+		</header>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+
 	<h:form>
 		<h:outputLabel> Bem Vindo ${usuario}</h:outputLabel>
 		<hr />
-		<h:commandLink action="#{taskBean.novo}" value="Nova Task" />
-		<h:outputLabel> | </h:outputLabel>
+		<h:commandLink action="#{taskBean.novo}" value="Nova Task" /> | 
 		<h:commandLink action="#{taskBean.listar}" value="Listar Tasks" />
 	</h:form>
-
+				</div>
+		</div>
+	</div>
+	
 </body>
 
 </html>

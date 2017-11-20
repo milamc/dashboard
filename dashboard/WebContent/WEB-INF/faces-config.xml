@@ -25,5 +25,9 @@
 			<from-outcome>lista</from-outcome>
 			<to-view-id>/listar_task.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>voltar</from-outcome>
+			<to-view-id>/tela_inicial.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 </faces-config>

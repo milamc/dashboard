@@ -6,35 +6,62 @@
 	
 <h:head>
 	<meta http-equiv="Content-Type" context="text/html; charset=ISO-8859-1"/>
+		
+	<link rel='stylesheet' href='resources\css\normalize.css' />
+	<link rel='stylesheet' href='resources\css\styles.css' />
+	<link rel='stylesheet' href='resources\css\bootstrap.css' />
+	<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text"
+		rel="stylesheet" />
+	<script src='resources\js\bootstrap.js'></script>
+	<script src='resources\js\jquery-3.2.1.js'></script>
 	<title>Dashboard - Tasks</title>
 </h:head>
 
 <h:body>
 
+	<div class="jumbotron text-center">
+		<header>
+			<div id="cab_logo">
+				<img src='resources/imagens/logo.png' />
+				<h1>DashBoard - Tasks</h1>
+			</div>
+		</header>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
 	<h1>Cadastro</h1>
 	<hr />
 	
 	<h:form enctype="multipart/form-data">
 		<h:messages />
-		<h:panelGrid>
+		<h:panelGrid columns="2">
 			<h:outputLabel value="Título:" for="titulo" />
-			<h:inputText id="title" value="#{taskBean.task.titulo}" required="true"/>
+			<h:inputText id="title" value="#{taskBean.task.titulo}"/>
 			<h:outputLabel value="Descrição:" for="descricao" />
-			<h:inputText id="descricaso" value="#{taskBean.task.descricao}" required="true"/>
+			<h:inputText id="descricaso" value="#{taskBean.task.descricao}"/>
 			<h:outputLabel value="Prioridade:" for="prioridade" />
-			<h:inputText id="prioridade" value="#{taskBean.task.prioridade}" required="true"/>
+			<h:inputText id="prioridade" value="#{taskBean.task.prioridade}"/>
 
 			<t:inputFileUpload storage="file" value="#{taskBean.arquivo}"/>
+			<br />
 			<h:commandButton action="#{taskBean.upload}" value="Carregar"/>
+			<br />
 			<hr />
-			<t:dataTable var="item" id="arquivos" value="#{taskBean.arquivos}" rules="rows" rendered="!empty(taskBean.arquivos)">
+			<br />
+			<t:dataTable var="item" id="arquivos" value="#{taskBean.arquivos}" rules="rows">
 				<t:column>
 					<t:outputText value="#{item.name}" />
 				</t:column>
 			</t:dataTable>
-			
+			<br />
 			<h:commandButton action="#{taskBean.salvar}" value="Salvar" />
+			<h:commandButton action="#{taskBean.voltar}" value="Voltar" />
+			
 		</h:panelGrid>
 	</h:form>	
+					</div>
+		</div>
+	</div>
 </h:body>
 </html>

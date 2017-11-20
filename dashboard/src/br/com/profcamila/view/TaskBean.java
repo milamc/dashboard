@@ -24,6 +24,7 @@ public class TaskBean {
 	public String novo() {
 		
 		this.task = new Task();
+		this.arquivos = new ArrayList<UploadedFile>();
 		return "novo";
 	}
 	
@@ -41,6 +42,10 @@ public class TaskBean {
 		setListaTasks(getTaskService().listar());
 		
 		return "lista";
+	}
+	
+	public String voltar() {
+		return "voltar";
 	}
 	
 	public void iniciar(String nome, String email) {
